@@ -1,13 +1,19 @@
-# Android builder
+= Android builder
 
 This is a docker image containing everything to build Android applications.
 
-# How-To
+== How-To
 
-Run the container
+Build the image:
+
+    $ make build
+
+Run the container and build from inside:
 
     $ docker run -it --rm -v $PWD:/src kalemena/android-builder
+    $ cd /src
+    $ ./gradlew clean assembleDebug
 
-From inside container:
+Run directly a full build:
 
-    $ 
+    $ make build.project PROJECT_PATH=/your_path_to_android_app
