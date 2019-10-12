@@ -1,6 +1,7 @@
 
 VERSION := latest
 PROJECT_PATH := $(pwd)
+USER := 1000:1000
 
 all: build
 
@@ -12,6 +13,5 @@ build:
 build.project:
 	@echo "+++ Building an Android project at $(PROJECT_PATH) +++"
 	docker run --rm -v $(PROJECT_PATH):/home/app \
-        kalemena/android-builder:$(VERSION) \
-        /bin/bash -c "cd /home/app && ./gradlew clean assembleDebug"
-
+		kalemena/android-builder:$(VERSION) \
+		/bin/bash -c "cd /home/app && ./gradlew clean assembleDebug"
